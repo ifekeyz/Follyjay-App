@@ -1,0 +1,139 @@
+{% load static %}
+        <div class="body-wrapper">
+            <header class="li-header-4">
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4">
+                                <div class="header-top-left">
+                                    <ul class="phone-wrap">
+                                        <li><span>Telephone Enquiry:</span><a href="#">(+234) 01234567</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8">
+                                <div class="header-top-right">
+                                    <ul class="ht-menu">
+                                        <li>
+                                            <span class="language-selector-wrapper">Language :</span>
+                                            <div class="ht-language-trigger"><span>English</span></div>
+                                            <div class="language ht-language">
+                                                <ul class="ht-setting-list">
+                                                    <li class="active"><a href="#"><img src="/static/images/menu/flag-icon/1.jpg" alt="">English</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="ht-setting-trigger"><span>Account</span></div>
+                                            <div class="setting ht-setting">
+                                                <ul class="ht-setting-list">
+                                                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
+                                                    <li><a href="{% url 'register_login' %}">Register</a></li>
+                                                    <li><a href="{% url 'login' %}">LogIn</a></li>
+                                                    <li><a href="{% url 'logout' %}">LogOut</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="logo pb-sm-20 pb-xs-20">
+                                    <a href="{% url 'index' %}">
+                                        
+                                        <img src="/static/images/logo.png" alt="" width="30%" height="30%">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
+                                <form action="" class="hm-searchbox">
+                                   
+                                    <input type="text" placeholder="Enter your search key ...">
+                                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                                {% if user.is_authenticated  %}
+                                <div><a href="{% url 'cart'%}">Hello, {{user.first_name}}</a></div>
+                                <div><a href="{% url 'logout' %}">LogOut</a></div>
+                                <div class="header-middle-right">
+                                    <ul class="hm-menu">
+                                        <li class="hm-minicart">
+                                            
+                                                <span class="item-text">
+                                                    <a href="{% url 'cart'%}"><span class="cart-item-count">{{cart.get_itemtotal}}</span></a>
+                                                </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% else %}
+                            
+                            <div><a href="{% url 'login' %}">Login Here</a></div>
+                            <div class="header-middle-right">
+                                <ul class="hm-menu">
+                                    <li class="hm-minicart">
+                                        
+                                            <span class="item-text">
+                                                <a href="{% url 'cart'%}"><span class="cart-item-count">{{cart.get_itemtotal}}</span></a>
+                                            </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom header-sticky stick d-none d-lg-block d-xl-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                               <div class="hb-menu">
+                                   <nav>
+                                       <ul>
+                                         
+                                             
+                                           </li>
+                                           <li class="megamenu-holder"><a href="/index">Shop</a>
+                                               <ul class="megamenu hb-megamenu">
+                                                   <li><a href="#">What in stock!!</a>
+                                                       <ul>
+                                                           <li><a href="{% url 'untensils_page' %}">African Untensils</a></li>
+                                                           <li><a href="{% url 'beauty_health_page' %}">Beauty & Health</a></li>
+                                                           <li><a href="{% url 'confectioneries' %}">Confectioneries</a></li>
+                                                           <li><a href="{% url 'drinks_page' %}">Drinks</a></li>
+                                                           <li><a href="{% url 'grain_flour_page' %}">Grain and flour</a></li>
+                                                           <li><a href="{% url 'species_oil_page' %}">Species and oil</a></li>
+                                                           <li><a href="{% url 'tuber_page' %}">Tuber</a></li>
+                                                           <li><a href="{% url 'meat_vegetable_page' %}">meat & vegetable</a></li>
+                                                       </ul>
+                                                   </li>
+                                               </ul>
+                                           </li>
+                                         </li>
+                                         <li><a href="{% url 'untensils_page' %}">African Untensils</a></li>
+                                         <li><a href="{% url 'beauty_health_page' %}">Beauty & Health</a></li>
+                                         <li><a href="{% url 'confectioneries' %}">Confectioneries</a></li>
+                                        
+                                       </ul>
+                                   </nav>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-area mobile-menu-area-4 d-lg-none d-xl-none col-12">
+                    <div class="container"> 
+                        <div class="row">
+                            <div class="mobile-menu">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>

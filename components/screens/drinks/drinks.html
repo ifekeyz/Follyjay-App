@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="active">Drinks</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content-wraper pt-60 pb-60 pt-sm-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 order-1 order-lg-2">
+                <div class="shop-top-bar mt-30">
+                    <div class="shop-bar-inner">
+                        <div class="product-view-mode">
+                            <ul class="nav shop-item-filter-list"
+                                role="tablist">
+                                <li class="active" role="presentation"><a
+                                        aria-selected="true" class="active show"
+                                        data-toggle="tab" role="tab"
+                                        aria-controls="grid-view"
+                                        href="#grid-view"><i class="fa fa-th"></i></a></li>
+                                <li role="presentation"><a data-toggle="tab"
+                                        role="tab" aria-controls="list-view"
+                                        href="#list-view"><i class="fa
+                                            fa-th-list"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-select-box">
+                        <div class="product-short">
+                            <p>Sort By:</p>
+                            <select class="nice-select">
+                                <option value="trending">Relevance</option>
+                                <option value="sales">Name (A - Z)</option>
+                                <option value="sales">Name (Z - A)</option>
+                                <option value="rating">Price (Low &gt; High)</option>
+                                <option value="date">Rating (Lowest)</option>
+                                <option value="price-asc">Model (A - Z)</option>
+                                <option value="price-asc">Model (Z - A)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-products-wrapper">
+                    <div class="tab-content">
+                        <div id="grid-view" class="tab-pane fade active show"
+                            role="tabpanel">
+                            <div class="product-area shop-product-area">
+                                <div class="row">
+                                    {% if drinks %}
+                                    {% for drink in drinks %}
+
+                                    <div class="col-lg-3 col-md-3 col-sm-6
+                                        mt-40">
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="">
+                                                    <img
+                                                        src="{{drink.image.url}}"
+                                                        alt="Li's Product
+                                                        Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5
+                                                            class="manufacturer">
+                                                            <a href="">{{drink.name}}</a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa
+                                                                        fa-star-o"></i></li>
+                                                                <li><i class="fa
+                                                                        fa-star-o"></i></li>
+                                                                <li><i class="fa
+                                                                        fa-star-o"></i></li>
+                                                                <li
+                                                                    class="no-star"><i
+                                                                        class="fa
+                                                                        fa-star-o"></i></li>
+                                                                <li
+                                                                    class="no-star"><i
+                                                                        class="fa
+                                                                        fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name"
+                                                            href="{% url 'drink'
+                                                            drink.id %}">Click
+                                                            to View</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">${{drink.price}}</span><br>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-actions">
+                                                    <ul
+                                                        class="add-actions-link">
+                                                        <li class="add-cart
+                                                            active addtocart"
+                                                            data-action="add"
+                                                            data-product="{{drink.id}}">Add
+                                                            to Cart</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div>
+                                        <br><br><br>
+                                        <h3>Nothing here to show</h3>
+                                    </div>
+                                    {% endif %}
+
+                                </div>
+                                <br><br><br>
+                            </div>
+                        </div>
+
+
+
+
+                        {% endblock %}

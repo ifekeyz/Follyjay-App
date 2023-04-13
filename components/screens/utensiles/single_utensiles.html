@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<!-- Header Area End Here -->
+<!-- Begin Li's Breadcrumb Area -->
+<div class="breadcrumb-area">
+<div class="container">
+    <div class="breadcrumb-content">
+        <ul>
+            <li><a href="/index">Home</a></li>
+            <li class="active">Single Product</li>
+        </ul>
+    </div>
+</div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- content-wraper start -->
+<div class="content-wraper">
+<div class="container">
+    <div class="row single-product-area">
+        <div class="col-lg-5 col-md-6">
+           <!-- Product Details Left -->
+            <div class="product-details-left">
+                <div class="product-details-images slider-navigation-1">
+                    <div class="lg-image">
+                        <a class="popup-img venobox vbox-item" href="{{africa.image.url}}" data-gall="myGallery">
+                            <img src="{{africa.image.url}}" alt="product image">
+                        </a>
+                    </div>
+                    
+                </div>
+               
+            </div>
+            <!--// Product Details Left -->
+        </div>
+
+        <div class="col-lg-7 col-md-6">
+            <div class="product-details-view-content pt-60">
+                <div class="product-info">
+                    <h2>{{africa.name}}</h2>
+                    <span class="product-details-ref">Reference: demo_15</span>
+                    <div class="rating-box pt-20">
+                        <ul class="rating rating-with-review-item">
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                            <li class="review-item"><a href="#">Read Review</a></li>
+                            <li class="review-item"><a href="#">Write Review</a></li>
+                        </ul>
+                    </div>
+                    <div class="price-box pt-20">
+                        <span class="new-price new-price-2">${{africa.price}}</span>
+                    </div>
+                    <div class="product-desc">
+                        <p>
+                            <span>{{africa.description}}</span>
+                        </p>
+                    </div>
+                    <div class="product-variants">
+                        <div class="produt-variants-size">
+                            <label>Dimension</label>
+                            <select class="nice-select">
+                                <option value="1" title="S" selected="selected">40x60cm</option>
+                                <option value="2" title="M">60x90cm</option>
+                                <option value="3" title="L">80x120cm</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="single-add-to-cart">
+                        <form action="#" class="cart-quantity">
+                            <div class="quantity">
+                                <label>Quantity</label>
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" value="1" type="text">
+                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                </div>
+                            </div>
+                            <button class="add-to-cart addtocart" data-action = "add" data-product="{{africa.id}}" >Add to Cart</button>
+                        </form>
+                    </div>
+                    <div class="product-additional-info pt-25">
+                        <!-- <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a> -->
+                       
+                    </div>
+                   
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+</div>
+<!-- content-wraper end -->
+>
+<section class="product-area li-laptop-product pt-30 pb-50">
+<div class="container">
+    <div class="row">
+        <!-- Begin Li's Section Area -->
+        <div class="col-lg-12">
+            <div class="li-section-title">
+                <h2>
+                    <span>Other Products</span>
+                </h2>
+            </div>
+            <div class="tab-content">
+                <div id="li-new-product" class="tab-pane active show" role="tabpanel">
+                    <div class="row">
+                       
+                                {% if africas %}
+                                    {% for item in africas %}
+                                
+                                <div class="single-product-wrap">
+                                    <div class="product-image">
+                                        <a href="{% url 'untensils_page'%}">
+                                            <img src="{{item.image.url}}" alt="Li's Product Image">
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="product_desc">
+                                        <div class="product_desc_info">
+                                            <div class="product-review">
+                                                <h5 class="manufacturer">
+                                                    <a href="{% url 'untensils_page'%}">{{item.name}}</a>
+                                                </h5>
+                                                <div class="rating-box">
+                                                    <ul class="rating">
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h4><a class="product_name" href="{% url 'untensils_page'%}">Click to View</a></h4>
+                                            <div class="price-box">
+                                                <span class="new-price">${{item.price}}</span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                    {% endfor %}
+                                {% else %}
+                                {% endif %}
+                                <!-- single-product-wrap end -->
+                            </div>
+                            
+                            
+                            
+                       
+                </div>
+                
+                
+                </div>
+        </div>
+        <!-- Li's Section Area End Here -->
+    </div>
+</div>
+</section>
+<!-- Li's Laptop Product Area End Here -->
+
+
+
+
+{% endblock %}
